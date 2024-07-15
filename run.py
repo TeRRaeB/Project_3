@@ -153,6 +153,9 @@ def quiz():
         append_row_to_sheet(sheet, answers)
         print(f"\n{user_name}, your answers are: {result}")
         print(f"Your temperament is: {temperament}")
+        retry = input("Do you want to take the quiz again? (yes/no): ").strip().lower()
+        if retry != 'yes':
+            break
 
 if __name__ == "__main__":
     quiz()
