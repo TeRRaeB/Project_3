@@ -1,3 +1,4 @@
+import os
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import time
@@ -18,9 +19,9 @@ def append_answer_to_sheet(sheet, user_name, question_num, user_answer):
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
     sheet.append_row([timestamp, user_name, question_num, user_answer])
 
- def clear_terminal():
+def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
-
+    
 def quiz():
     questions_and_options = [
         ("How do you usually react to unexpected changes in plans?", 
