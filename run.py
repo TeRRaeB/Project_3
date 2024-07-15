@@ -77,26 +77,32 @@ def quiz():
         if not user_name:
             continue
 
-        answers = []
+        answers = [user_name]
         for i, (question, options) in enumerate(questions_and_options):
-            print(f"\nQuestion {i+1}: {question}")
-            for option in options:
-                print(option)
-            user_answer = input("Your answer (a, b, c, d) or 0 to quit: ").strip().lower()
-            
+            while True:
+                print(f"\nQuestion {i+1}: {question}")
+                for option in options:
+                    print(option)
+                user_answer = input("Your answer (a, b, c, d) or 0 to quit: ").strip().lower()
+                
+                if user_answer == '0':
+                    break
+                elif user_answer in ['a', 'b', 'c', 'd']:
+                    answers.append(user_answer)
+                    break
+                else:
+                    print("Invalid answer. Please choose a, b, c, d or 0.")
+                    continue
+
             if user_answer == '0':
                 break
-            elif user_answer in ['a', 'b', 'c', 'd']:
-                answers.append(user_answer)
-                append_answer_to_sheet(sheet, user_name, i+1, user_answer)
-            else:
-                print("Invalid answer. Please choose a, b, c, d or 0.")
-                continue
 
         if user_answer == '0':
             continue
 
-        result = "".join(answers)
+        result = "".join(answers[1:])
+        answers.append(result)
+        append_row_to_sheet(sheet, answers)
         print(f"\n{user_name}, your answers are: {result}")
 
         retry = input("Do you want to take the quiz again? (yes/no): ").strip().lower()
