@@ -9,7 +9,7 @@ def authorize_google_sheets():
     return client
 
 def open_sheet(client, sheet_name):
-    return client.open(sheet_name).list1
+    return client.open(sheet_name).sheet1
 
 def append_answer_to_sheet(sheet, user_name, question_num, user_answer):
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
