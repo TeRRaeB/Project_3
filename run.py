@@ -11,6 +11,9 @@ def authorize_google_sheets():
 def open_sheet(client, sheet_name):
     return client.open(sheet_name).sheet1
 
+def append_row_to_sheet(sheet, row_data):
+    sheet.append_row(row_data)
+
 def append_answer_to_sheet(sheet, user_name, question_num, user_answer):
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
     sheet.append_row([timestamp, user_name, question_num, user_answer])
@@ -71,6 +74,9 @@ def quiz():
 
     client = authorize_google_sheets()
     sheet = open_sheet(client, 'temperament-test')
+    
+    if sheet is None:
+        return
 
     while True:
         user_name = input("Please enter your name: ")
@@ -97,17 +103,17 @@ def quiz():
             if user_answer == '0':
                 break
 
-        if user_answer == '0': 
+        if user_answer == '0':
             while len(answers) < 11:
                 answers.append('')
             result = "".join(answers[1:])
             answers.append(result)
-            append_answer_to_sheet(sheet, answers)
+            append_row_to_sheet(sheet, answers)
             continue
 
         result = "".join(answers[1:])
         answers.append(result)
-        append_answer_to_sheet(sheet, answers)
+        append_row_to_sheet(sheet, answers)
         print(f"\n{user_name}, your answers are: {result}")
 
         retry = input("Do you want to take the quiz again? (yes/no): ").strip().lower()
