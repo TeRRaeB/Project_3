@@ -97,12 +97,17 @@ def quiz():
             if user_answer == '0':
                 break
 
-        if user_answer == '0':
+        if user_answer == '0': 
+            while len(answers) < 11:
+                answers.append('')
+            result = "".join(answers[1:])
+            answers.append(result)
+            append_answer_to_sheet(sheet, answers)
             continue
 
         result = "".join(answers[1:])
         answers.append(result)
-        append_row_to_sheet(sheet, answers)
+        append_answer_to_sheet(sheet, answers)
         print(f"\n{user_name}, your answers are: {result}")
 
         retry = input("Do you want to take the quiz again? (yes/no): ").strip().lower()
