@@ -21,7 +21,34 @@ def append_answer_to_sheet(sheet, user_name, question_num, user_answer):
 
 def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
-    
+
+def determine_temperament(result):
+    count_a = result.count('a')
+    count_b = result.count('b')
+    count_c = result.count('c')
+    count_d = result.count('d')
+
+    temperament_counts = {
+        'a': count_a,
+        'b': count_b,
+        'c': count_c,
+        'd': count_d
+    }
+
+    max_count = max(temperament_counts.values())
+    max_temperaments = [key for key, value in temperament_counts.items() if value == max_count]
+
+    if len(max_temperaments) > 1:
+        return "Mixed"
+    else:
+        temperament_map = {
+            'a': "Sanguine",
+            'b': "Choleric",
+            'c': "Phlegmatic",
+            'd': "Melancholic"
+        }
+        return temperament_map[max_temperaments[0]]
+
 def quiz():
     questions_and_options = [
         ("How do you usually react to unexpected changes in plans?", 
@@ -108,7 +135,7 @@ def quiz():
 
         if user_answer == '0':
             while len(answers) < 11:
-                answers.append('')
+                answers.append('-')
             result = "".join(answers[1:])
             answers.append(result)
             append_row_to_sheet(sheet, answers)
@@ -116,12 +143,11 @@ def quiz():
 
         result = "".join(answers[1:])
         answers.append(result)
+        temperament = determine_temperament(result)
+        answers.append(temperament)
         append_row_to_sheet(sheet, answers)
         print(f"\n{user_name}, your answers are: {result}")
-
-        retry = input("Do you want to take the quiz again? (yes/no): ").strip().lower()
-        if retry != 'yes':
-            break
+        print(f"Your temperament is: {temperament}")
 
 if __name__ == "__main__":
     quiz()
