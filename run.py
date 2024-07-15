@@ -2,7 +2,8 @@ import os
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import time
- 
+import re
+
 def authorize_google_sheets():
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
     creds = ServiceAccountCredentials.from_json_keyfile_name('creds.json', scope)
@@ -21,6 +22,9 @@ def append_answer_to_sheet(sheet, user_name, question_num, user_answer):
 
 def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
+
+def is_valid_name(name):
+    return re.match("^[A-Za-zА]+$", name) is not None
 
 def determine_temperament(result):
     count_a = result.count('a')
@@ -108,7 +112,8 @@ def quiz():
     
     while True:
         user_name = input("Please enter your name: ")
-        if not user_name:
+        if not is_valid_name(user_name):
+            print("Invalid name. Please enter a valid name without numbers or special characters.")
             continue
 
         answers = [user_name]
