@@ -1,32 +1,105 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# The Temperament test
 
-Welcome,
+Temperament is the internal “rhythm” of a person. It affects the speed with which we react to certain situations, how strongly and intensely we experience emotions and determines our activity. Unlike character, temperament is an innate characteristic of a person. It doesn't change over time.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **May 14, 2024**
+![logo](documents/logo.jpg)
 
-## Reminders
+Link for [Temperament test](https://temperament-test-66bc018c9c9e.herokuapp.com/).
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+## Table of Contents
 
-## Creating the Heroku app
+- [Project Goals](#project-goals)
+- [Technologies](#Technologies)
+- [UX](#UX)
+- [Features](#Features) 
+- [Project diagram](#Project-diagram)
+   * [Google Sheet](#Google_sheet)
+- [Testing](#Testing)
+   * [Manual testing](#Manual-testing)
+   * [Python Validation](#Python-Validation)
+   * [Bugs](#Bugs)
+- [Deployment](#Deployment)
+- [Credits](#Credits)
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## Project Goals
 
-1. `heroku/python`
-2. `heroku/nodejs`
+The goal of the Temperament Test project is to create and implement an interactive tool that will allow users to determine their temperament type. This project aims to develop users' self-knowledge and personal effectiveness, which will ultimately contribute to their overall life satisfaction and professional success.
+ 
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+## Technologies
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+1. Python - programming language used for the creation of the game.
+2. VSCode - was used as the primary local IDE for coding.
+3. GitHub - to store the project's code.
+4. Heroku - to deploy my application.
+5. https://app.diagrams.net/ - creating a diagram.
 
-Connect your GitHub repository and deploy as normal.
+## UX
 
-## Constraints
+Custom simple and clear design, you need to enter a name (validation of entered data is used). And then 10 questions will be asked that will help determine temperament. The user is offered 4 answer options (you must enter “a”, “b”, “c” or “d”), and you can also enter zero “0” to complete the test early.
+![UX1](documents/ux1.jpg)
+![UX2](documents/ux2.jpg)
+![UX3](documents/ux3.jpg)
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+## Features
 
----
+Main functions of the project:
+- Enter your username. (Checks the correctness of the input)
+- Input of answers to questions is accepted only: a, b, c, d, 0. All other entered data - ask the question again.
+- After answering the questions, the function determines the result based on the most selected answer option. (this is how the test is designed)
+- All answers are also recorded in Google Sheets.
+-If in the middle of the answer the user selected the answer “0”, then the remaining answers in the table will be recorded as “-” and the result will not be displayed.
 
-Happy coding!
+## Project diagram
+
+![diagram](documents/diagram.jpg)
+
+## Google Sheet
+
+Url: [Results table](https://docs.google.com/spreadsheets/d/1BAiL0u5fYRj7r1hpuZ9WNJaa9G3JLr8MaOBxqov8h0M/edit?usp=sharing)
+
+![sheet](documents/sheet.jpg)
+
+## Testing
+
+### Manual testing
+
+| Feature tested                                    | Expected outcome                                                                  | Actual outcome |
+| ------------------------------------------------- | --------------------------------------------------------------------------------- | -------------- |
+| Enter name - 123                                  | "Invalid name. Please enter a valid name without numbers or special characters."  | As expected.   |
+| Answer №1 - 5                                     | "Invalid answer. Please choose a, b, c, d or 0." asks the question again.         | As expected.   |
+| Answer №2 - fsda                                  | "Invalid answer. Please choose a, b, c, d or 0." asks the question again.         | As expected.   |
+| Answer - 0                                        | "Please enter your name: " Restart app                                            | As expected.   |
+| Completed all quiz                                | "{name_user}, your answers are: aaaaaaaaaa Your temperament is: Sanguine Do you want to take the test again? (yes) | As expected.   | 
+
+### Python Validation
+
+I validated my run.py file using [Code Institute's Python Linter](https://pep8ci.herokuapp.com/#).
+There are questions about the length of lines.
+
+![Python Linter](documents/python_linter.jpg)
+
+### Bugs
+
+When I ran my Code through the [PEP8](https://pep8ci.herokuapp.com/#), I found such syntax errors:
+
+- trailing whitespace;
+- continuation line under-indented for visual indent;
+- expected 2 blank lines, found 1;
+- line too long.
+
+Almost all of these errors are fixed (except for the line being too long).
+
+
+## Deployment
+
+This project was deployed using the Code Institute terminal template for Heroku.
+The deployment steps are as follows:
+Create a new application in Heroku  
+On the "Settings" tab, install the "Python" and "NodeJS" builds 
+Link your Heroku app to a GitHub repository.
+Click Expand
+
+## Credits
+
+The idea came to me when I was thinking about a project idea and decided to focus on user testing. And I decided to choose the “temperament test” because all people are interested in “who are they really?” After passing a bunch of different tests on thematic sites, I collected 10 suitable questions.
