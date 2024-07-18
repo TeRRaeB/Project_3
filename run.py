@@ -18,6 +18,10 @@ def open_sheet(client, sheet_name):
     return client.open(sheet_name).sheet1
 
 
+def welcome():
+    print("Temperament is the internal “rhythm” of a person. \n It affects the speed with which we react to certain situations,\n how strongly and intensely we experience emotions and determines our activity. \n Let's take the test and find out your temperament.")
+
+
 def append_row_to_sheet(sheet, row_data):
     sheet.append_row(row_data)
 
@@ -53,6 +57,17 @@ def determine_temperament(result):
             "d": "Melancholic",
         }
         return temperament_map[max_temperaments[0]]
+
+
+def description_temp(temperament):
+    temperament_map = {
+        "Sanguine":"People who are defined as sanguine are typically extroverted and sociable.\n They are chipper people who see a glass as half full instead of half empty.\n You will likely find them in the middle of a crowd and not at the fringes.\n Social interactions come easy to them, and they can be talkative and energetic.",
+        "Choleric":"The defining characteristics of choleric people are dominant and assertive.\n People who belong to this temperament type are goal-oriented and driven.\n They are high achievers at work, school, or even play and are often selected as team leaders",
+        "Phlegmatic":"Laid-back is the word that's likely to come to mind when encountering a phlegmatic person immediately.\n They are easygoing people who tend to be very empathetic when relating with others.\n They are dependable and patient people who find comfort in the mundane and routine. ",
+        "Melancholic":"People often conflate melancholic with joyless or sad,\n but there's so much more to people with this temperament.\n Although reserved, melancholic people are also thoughtful and sensitive.\n They can also be analytical and methodical, especially at work, making them valuable to any workplace.",
+        "Mixed":"The mixed type of temperament represents various parts taken from other temperaments.\n For a more accurate result, it is better to take a more advanced test."
+    }
+    return temperament_map[temperament];
 
 
 def test():
@@ -151,9 +166,9 @@ def test():
 
     client = authorize_google_sheets()
     sheet = open_sheet(client, "temperament-test")
-
+    welcome()
     while True:
-        user_name = input("Please enter your name: ")
+        user_name = input("Please enter your full name (example: John Smith): ")
         if not is_valid_name(user_name):
             print(
                 "Invalid name. Please enter a valid name without numbers or special characters."
@@ -197,8 +212,8 @@ def test():
         temperament = determine_temperament(result)
         answers.append(temperament)
         append_row_to_sheet(sheet, answers)
-        print(f"\n{user_name}, your answers are: {result}")
         print(f"Your temperament is: {temperament}")
+        print(description_temp(temperament));
         retry = input("Do you want to take the test again? (yes): ").strip().lower()
         if retry != "yes":
             break
