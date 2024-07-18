@@ -19,7 +19,14 @@ def open_sheet(client, sheet_name):
 
 
 def welcome():
-    print("/==========================\ \n||+-+-+-+-+-+-+-+-+-+-+-+ ||\n|||T|E|M|P|E|R|A|M|E|N|T| ||\n||+-+-+-+-+-+-+-+-+-+-+-+ ||\n\==========================/")
+    print(
+        r"""
+        /==========================\ 
+        ||+-+-+-+-+-+-+-+-+-+-+-+ ||
+        |||T|E|M|P|E|R|A|M|E|N|T| ||
+        ||+-+-+-+-+-+-+-+-+-+-+-+ ||
+        \==========================/
+          """)
     print("Temperament is the internal “rhythm” of a person. \nIt affects the speed with which we react to certain situations, \nhow strongly and intensely we experience emotions and determines our activity. \nLet's take the test and find out your temperament.\n \n \n")
 
 
