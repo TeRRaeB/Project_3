@@ -33,6 +33,7 @@ The goal of the Temperament Test project is to create and implement an interacti
 3. GitHub - to store the project's code.
 4. Heroku - to deploy my application.
 5. https://app.diagrams.net/ - creating a diagram.
+6. https://www.asciiart.eu/text-to-ascii-art - weclone message.
 
 ## UX
 
