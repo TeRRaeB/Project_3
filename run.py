@@ -224,7 +224,7 @@ def test():
         temperament = determine_temperament(result)
         answers.append(temperament)
         append_row_to_sheet(sheet, answers)
-        print(f"Your temperament is: {temperament}")
+        print(f"{user_name}, Your temperament is: {temperament}")
         print(description_temp(temperament))
         retry = input("Do you want to take the test again? (yes): ").strip().lower()
         if retry != "yes":
