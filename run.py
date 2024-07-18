@@ -184,9 +184,8 @@ def test():
             print(
                 "Invalid name. Please enter a valid name without numbers or special characters."
             )
-            clear_terminal()
             continue
-
+        clear_terminal()
         answers = [user_name]
         for i, (question, options) in enumerate(questions_and_options):
             while True:
