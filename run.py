@@ -39,7 +39,7 @@ def clear_terminal():
 
 
 def is_valid_name(name):
-    return re.match("^[A-Za-zА]+$", name) is not None
+    return re.match("^[A-Za-zА]+(?: [A-Za-zА]+$", name) is not None
 
 
 def determine_temperament(result):
