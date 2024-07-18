@@ -26,8 +26,11 @@ def welcome():
         |||T|E|M|P|E|R|A|M|E|N|T| ||
         ||+-+-+-+-+-+-+-+-+-+-+-+ ||
         \==========================/
-          """)
-    print("Temperament is the internal “rhythm” of a person. \nIt affects the speed with which we react to certain situations, \nhow strongly and intensely we experience emotions and determines our activity. \nLet's take the test and find out your temperament.\n \n \n")
+          """
+    )
+    print(
+        "Temperament is the internal “rhythm” of a person. \nIt affects the speed with which we react to certain situations, \nhow strongly and intensely we experience emotions and determines our activity. \nLet's take the test and find out your temperament.\n \n \n"
+    )
 
 
 def append_row_to_sheet(sheet, row_data):
@@ -69,13 +72,13 @@ def determine_temperament(result):
 
 def description_temp(temperament):
     temperament_map = {
-        "Sanguine":"People who are defined as sanguine are typically extroverted and sociable.\n They are chipper people who see a glass as half full instead of half empty.\n You will likely find them in the middle of a crowd and not at the fringes.\n Social interactions come easy to them, and they can be talkative and energetic.",
-        "Choleric":"The defining characteristics of choleric people are dominant and assertive.\n People who belong to this temperament type are goal-oriented and driven.\n They are high achievers at work, school, or even play and are often selected as team leaders",
-        "Phlegmatic":"Laid-back is the word that's likely to come to mind when encountering a phlegmatic person immediately.\n They are easygoing people who tend to be very empathetic when relating with others.\n They are dependable and patient people who find comfort in the mundane and routine. ",
-        "Melancholic":"People often conflate melancholic with joyless or sad,\n but there's so much more to people with this temperament.\n Although reserved, melancholic people are also thoughtful and sensitive.\n They can also be analytical and methodical, especially at work, making them valuable to any workplace.",
-        "Mixed":"The mixed type of temperament represents various parts taken from other temperaments.\n For a more accurate result, it is better to take a more advanced test."
+        "Sanguine": "People who are defined as sanguine are typically extroverted and sociable.\nThey are chipper people who see a glass as half full instead of half empty.\nYou will likely find them in the middle of a crowd and not at the fringes.\nSocial interactions come easy to them, and they can be talkative and energetic.",
+        "Choleric": "The defining characteristics of choleric people are dominant and assertive.\nPeople who belong to this temperament type are goal-oriented and driven.\nThey are high achievers at work, school, or even play and are often selected as team leaders.",
+        "Phlegmatic": "Laid-back is the word that's likely to come to mind when encountering a phlegmatic person immediately.\nThey are easygoing people who tend to be very empathetic when relating with others.\nThey are dependable and patient people who find comfort in the mundane and routine.",
+        "Melancholic": "People often conflate melancholic with joyless or sad,\nbut there's so much more to people with this temperament.\nAlthough reserved, melancholic people are also thoughtful and sensitive.\nThey can also be analytical and methodical, especially at work, making them valuable to any workplace.",
+        "Mixed": "The mixed type of temperament represents various parts taken from other temperaments.\nFor a more accurate result, it is better to take a more advanced test.",
     }
-    return temperament_map[temperament];
+    return temperament_map[temperament]
 
 
 def test():
@@ -181,6 +184,7 @@ def test():
             print(
                 "Invalid name. Please enter a valid name without numbers or special characters."
             )
+            clear_terminal()
             continue
 
         answers = [user_name]
@@ -221,7 +225,7 @@ def test():
         answers.append(temperament)
         append_row_to_sheet(sheet, answers)
         print(f"Your temperament is: {temperament}")
-        print(description_temp(temperament));
+        print(description_temp(temperament))
         retry = input("Do you want to take the test again? (yes): ").strip().lower()
         if retry != "yes":
             break

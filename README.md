@@ -94,12 +94,15 @@ Almost all of these errors are fixed (except for the line being too long).
 
 ## Deployment
 
-This project was deployed using the Code Institute terminal template for Heroku.
-The deployment steps are as follows:
-Create a new application in Heroku  
-On the "Settings" tab, install the "Python" and "NodeJS" builds 
-Link your Heroku app to a GitHub repository.
-Click Expand
+This project utilizes Heroku, a platform as a service that allows developers to create, manage, and deploy applications entirely in the cloud.
+
+Here are the deployment steps after setting up your account:
+- In the top-right corner of your Heroku Dashboard, click on New and choose Create new app from the dropdown menu.
+- Ensure your app name is unique, select a region closest to you (EU or USA), and then click Create App.
+- In the Settings of the newly created app, click Reveal Config Vars, set KEY to PORT, and the value to 8000, then click add.
+- To support dependencies, scroll down and click Add Buildpack.
+- The buildpack order is crucial. Select Python first and Node.js second. If they are not in this order, you can drag and drop them to rearrange.
+- Link the GitHub repository to Heroku.
 
 ## Credits
 
