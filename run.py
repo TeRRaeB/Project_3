@@ -19,7 +19,8 @@ def open_sheet(client, sheet_name):
 
 
 def welcome():
-    print("Temperament is the internal “rhythm” of a person. \n It affects the speed with which we react to certain situations,\n how strongly and intensely we experience emotions and determines our activity. \n Let's take the test and find out your temperament.")
+    print("/==========================\ \n||+-+-+-+-+-+-+-+-+-+-+-+ ||\n|||T|E|M|P|E|R|A|M|E|N|T| ||\n||+-+-+-+-+-+-+-+-+-+-+-+ ||\n\==========================/")
+    print("Temperament is the internal “rhythm” of a person. \nIt affects the speed with which we react to certain situations, \nhow strongly and intensely we experience emotions and determines our activity. \nLet's take the test and find out your temperament.\n \n \n")
 
 
 def append_row_to_sheet(sheet, row_data):
