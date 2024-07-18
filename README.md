@@ -10,7 +10,8 @@ Link for [Temperament test](https://temperament-test-66bc018c9c9e.herokuapp.com/
 
 - [Project Goals](#project-goals)
 - [Technologies](#Technologies)
-- [UX](#UX)
+- [User Experience - UX](#UX)
+   * [User Stories](#User_Stories)
 - [Features](#Features) 
 - [Project diagram](#Project-diagram)
    * [Google Sheet](#Google_sheet)
@@ -35,12 +36,25 @@ The goal of the Temperament Test project is to create and implement an interacti
 5. https://app.diagrams.net/ - creating a diagram.
 6. https://www.asciiart.eu/text-to-ascii-art - weclone message.
 
-## UX
+## User Experience - UX
 
 Custom simple and clear design, you need to enter a name (validation of entered data is used). And then 10 questions will be asked that will help determine temperament. The user is offered 4 answer options (you must enter “a”, “b”, “c” or “d”), and you can also enter zero “0” to complete the test early.
 ![UX1](documents/ux1.jpg)
 ![UX2](documents/ux2.jpg)
 ![UX3](documents/ux3.jpg)
+
+#### Key information for the site
+
+- In a simple and understandable way, get to know yourself more.
+- Simple questions and life situations.
+- Clear controls with hints.
+- Notifying the user about the test result, as well as additional information.
+
+### User Stories
+New site users:
+- I want to easily understand how to take the test so that I can get my temperament result and detailed information.
+- I want the application to be friendly
+- I want clear instructions on how to answer questions.
 
 ## Features
 
